@@ -11,5 +11,6 @@ public class Solution
         int s = 5;
         int t = 6;
         int x = 7;
+
     }
 }
