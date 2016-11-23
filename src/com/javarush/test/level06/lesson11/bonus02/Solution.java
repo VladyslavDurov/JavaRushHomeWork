@@ -83,6 +83,7 @@ public class Solution
             String p1 = parent2 == null ? ", no mother" : ", mother is " + parent2.name;
             String p2 = parent == null ? ", no father" : ", father is " + parent.name;
             return "Cat name is " + name + p1 + p2;
+
         }
     }
 
