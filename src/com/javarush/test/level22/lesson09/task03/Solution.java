@@ -23,19 +23,10 @@ public class Solution {
 
     public static void main(String[] args) throws IOException
     {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedReader filereader = new BufferedReader(new InputStreamReader(new FileInputStream(br.readLine())));
-        StringBuilder sb = new StringBuilder();
-        String line;
-        while ((line = filereader.readLine())!=null){
-            sb.append(" " + line);
-        }
-        StringBuilder result = getLine();
-        System.out.println(result.toString());
+
     }
 
     public static StringBuilder getLine(String... words) {
-        StringBuilder sb = new StringBuilder();
         return null;
     }
 }
