@@ -1,7 +1,5 @@
 package com.javarush.test.level22.lesson09.task03;
 
-import java.io.*;
-
 /* Составить цепочку слов
 В методе main считайте с консоли имя файла, который содержит слова, разделенные пробелом.
 В методе getLine используя StringBuilder расставить все слова в таком порядке,
@@ -18,15 +16,13 @@ import java.io.*;
 Амстердам Мельбурн Нью-Йорк Киев Вена
 */
 public class Solution {
-
-
-
-    public static void main(String[] args) throws IOException
-    {
-
+    public static void main(String[] args) {
+        //...
+        StringBuilder result = getLine();
+        System.out.println(result.toString());
     }
 
     public static StringBuilder getLine(String... words) {
-        return null;
+          return null;
     }
 }
