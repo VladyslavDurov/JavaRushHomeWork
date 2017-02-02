@@ -1,8 +1,11 @@
 package com.javarush.test.level17.lesson10.bonus01;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 /* CRUD
 CrUD - Create, Update, Delete
@@ -34,7 +37,44 @@ public class Solution {
         allPeople.add(Person.createMale("Петров Петр", new Date()));  //сегодня родился    id=1
     }
 
-    public static void main(String[] args) {
-        //start here - начни тут
+    public static void main(String[] args) throws ParseException, IndexOutOfBoundsException{
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
+
+        switch (args[0]){
+
+            case "-c":{
+                Person person;
+                String name = args[1];
+                Date birthDay = simpleDateFormat.parse(args[3]);
+
+                if(args[2].equals("м"))
+                    person = Person.createMale(name, birthDay);
+                else
+                    person = Person.createFemale(name, birthDay);
+                allPeople.add(person);
+                System.out.println(allPeople.indexOf(person));
+            }break;
+            case "-u":{
+                Person person = allPeople.get(Integer.valueOf(args[1]));
+                person.setName(args[2]);
+                person.setSex(args[3].equals("м")?Sex.MALE:Sex.FEMALE);
+                person.setBirthDay(simpleDateFormat.parse(args[4]));
+            }break;
+            case "-d":{
+                allPeople.remove(Integer.valueOf(args[1]));
+            }break;
+            case "-i":{
+                SimpleDateFormat sdf = new SimpleDateFormat("dd-MMM-yyyy", Locale.ENGLISH);
+                Person person = allPeople.get(Integer.valueOf(args[1]));
+                System.out.println(
+                        new StringBuilder().append(person.getName())
+                        .append(" ")
+                        .append(person.getSex().equals(Sex.MALE)?"м":"ж")
+                        .append(" ")
+                        .append(sdf.format(person.getBirthDay())));
+            }break;
+        }
+
     }
 }
