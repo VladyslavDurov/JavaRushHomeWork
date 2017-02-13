@@ -55,15 +55,18 @@ public class Solution {
                 allPeople.add(person);
                 System.out.println(allPeople.indexOf(person));
             }break;
+
             case "-u":{
                 Person person = allPeople.get(Integer.valueOf(args[1]));
                 person.setName(args[2]);
                 person.setSex(args[3].equals("м")?Sex.MALE:Sex.FEMALE);
                 person.setBirthDay(simpleDateFormat.parse(args[4]));
             }break;
+
             case "-d":{
                 allPeople.remove(Integer.valueOf(args[1]));
             }break;
+
             case "-i":{
                 SimpleDateFormat sdf = new SimpleDateFormat("dd-MMM-yyyy", Locale.ENGLISH);
                 Person person = allPeople.get(Integer.valueOf(args[1]));
